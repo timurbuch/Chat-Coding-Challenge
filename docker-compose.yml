@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  react-client:
+     image: react-client
+     stdin_open: true
+     ports: 
+       - "3000:3000"
+     networks:
+       - chat-app
+  socket.io-server:
+     image: socket.io-server
+     ports:
+        - "3001:3001"
+     networks: 
+        - chat-app
+networks: 
+    chat-app:
+        driver: bridge          
